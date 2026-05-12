@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keshava Murthy P | Lead Generation Specialist</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #13131a;
+    --card: #1a1a24;
+    --accent: #00e5a0;
+    --accent2: #0066ff;
+    --text: #f0f0f0;
+    --muted: #888;
+    --border: #2a2a3a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* GRID BACKGROUND */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0,229,160,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,229,160,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* NAV */
+  nav {
+    padding: 24px 0;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    background: rgba(10,10,15,0.95);
+    backdrop-filter: blur(12px);
+    z-index: 100;
+  }
+
+  nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--accent);
+    letter-spacing: -0.5px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  /* HERO */
+  .hero {
+    padding: 100px 0 80px;
+    text-align: center;
+  }
+
+  .badge {
+    display: inline-block;
+    background: rgba(0,229,160,0.1);
+    border: 1px solid rgba(0,229,160,0.3);
+    color: var(--accent);
+    padding: 6px 16px;
+    border-radius: 100px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+
+  .hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -2px;
+    margin-bottom: 24px;
+  }
+
+  .hero h1 span {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    color: var(--muted);
+    max-width: 520px;
+    margin: 0 auto 40px;
+    font-weight: 300;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--accent);
+    color: #000;
+    padding: 14px 32px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 0 30px rgba(0,229,160,0.3);
+  }
+
+  .hero-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 50px rgba(0,229,160,0.5);
+  }
+
+  /* STATS */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 60px 0;
+  }
+
+  .stat {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 20px;
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--accent);
+    display: block;
+  }
+
+  .stat-label {
+    font-size: 0.82rem;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+
+  /* SECTION */
+  .section {
+    padding: 60px 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .section-tag {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 32px;
+  }
+
+  /* ABOUT */
+  .about-text {
+    font-size: 1.05rem;
+    color: #ccc;
+    max-width: 680px;
+    margin-bottom: 28px;
+  }
+
+  .skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .skill-tag {
+    background: rgba(0,102,255,0.1);
+    border: 1px solid rgba(0,102,255,0.3);
+    color: #6699ff;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    font-weight: 500;
+  }
+
+  /* PROJECTS */
+  .project-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 36px;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+
+  .project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+  }
+
+  .project-card:hover {
+    border-color: rgba(0,229,160,0.3);
+    transform: translateY(-3px);
+  }
+
+  .project-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+
+  .project-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 20px;
+  }
+
+  .problem-solution {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .ps-box {
+    padding: 16px;
+    border-radius: 10px;
+    font-size: 0.88rem;
+  }
+
+  .problem {
+    background: rgba(255,60,60,0.06);
+    border: 1px solid rgba(255,60,60,0.15);
+  }
+
+  .solution {
+    background: rgba(0,229,160,0.06);
+    border: 1px solid rgba(0,229,160,0.15);
+  }
+
+  .ps-label {
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .problem .ps-label { color: #ff6060; }
+  .solution .ps-label { color: var(--accent); }
+
+  .ps-box p { color: #bbb; line-height: 1.6; }
+
+  .result-box {
+    background: rgba(0,102,255,0.06);
+    border: 1px solid rgba(0,102,255,0.2);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+  }
+
+  .result-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #6699ff;
+    margin-bottom: 10px;
+  }
+
+  .result-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .result-item {
+    background: rgba(0,102,255,0.1);
+    border: 1px solid rgba(0,102,255,0.2);
+    color: #99bbff;
+    padding: 4px 12px;
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+
+  .project-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+
+  .tools {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .tool {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 0.78rem;
+    font-weight: 500;
+  }
+
+  .github-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid rgba(0,229,160,0.3);
+    padding: 7px 16px;
+    border-radius: 8px;
+    transition: background 0.2s;
+  }
+
+  .github-link:hover {
+    background: rgba(0,229,160,0.1);
+  }
+
+  /* OFFER */
+  .offer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .offer-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 20px;
+    text-align: center;
+    transition: border-color 0.2s;
+  }
+
+  .offer-card:hover { border-color: rgba(0,229,160,0.4); }
+
+  .offer-icon { font-size: 1.8rem; margin-bottom: 12px; }
+
+  .offer-name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 6px;
+  }
+
+  .offer-price {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+
+  .offer-time {
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+
+  /* FREE SAMPLE */
+  .free-sample {
+    background: linear-gradient(135deg, rgba(0,229,160,0.08), rgba(0,102,255,0.08));
+    border: 1px solid rgba(0,229,160,0.25);
+    border-radius: 16px;
+    padding: 40px;
+    text-align: center;
+    margin: 60px 0;
+  }
+
+  .free-sample h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 12px;
+  }
+
+  .free-sample p {
+    color: var(--muted);
+    margin-bottom: 24px;
+    font-size: 1rem;
+  }
+
+  /* CONTACT */
+  .contact-section {
+    padding: 60px 0 80px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+  }
+
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 32px;
+  }
+
+  .contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.88rem;
+    transition: transform 0.2s;
+  }
+
+  .contact-link:hover { transform: translateY(-2px); }
+
+  .contact-email {
+    background: var(--accent);
+    color: #000;
+  }
+
+  .contact-linkedin {
+    background: #0077b5;
+    color: #fff;
+  }
+
+  .contact-github {
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--text);
+  }
+
+  .reply-time {
+    margin-top: 20px;
+    font-size: 0.82rem;
+    color: var(--muted);
+  }
+
+  .reply-time span {
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 24px;
+    border-top: 1px solid var(--border);
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+
+  @media (max-width: 600px) {
+    .problem-solution { grid-template-columns: 1fr; }
+    .offer-grid { grid-template-columns: 1fr; }
+    .stats { grid-template-columns: 1fr; }
+    .project-footer { flex-direction: column; gap: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="container">
+    <div class="logo">KM.</div>
+    <ul class="nav-links">
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="container">
+  <div class="hero">
+    <div class="badge">⚡ Available for freelance work</div>
+    <h1>Local Business<br><span>Lead Generation</span><br>Specialist</h1>
+    <p class="hero-sub">
+      I help digital marketing agencies get verified local business 
+      leads from Google Maps — clean Excel report delivered in 24 hours.
+    </p>
+    <a href="mailto:keshava.automations@gmail.com" class="hero-cta">
+      🎁 Get 20 Free Leads — No Payment
+    </a>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat">
+      <span class="stat-num">100+</span>
+      <span class="stat-label">Leads Per Run</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">24 hrs</span>
+      <span class="stat-label">Delivery Time</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">4.75★</span>
+      <span class="stat-label">Avg Lead Rating</span>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="section">
+  <div class="container">
+    <div class="section-tag">About</div>
+    <div class="section-title">Who I Am</div>
+    <p class="about-text">
+      Hi, I'm Keshava Murthy from Tiruppur. I build automated lead generation 
+      tools for digital marketing agencies using Python. Instead of spending 
+      days manually copying business contacts from Google Maps, my tools 
+      deliver clean, verified, ready-to-use Excel reports within 24 hours 
+      — for any city, any business category.
+    </p>
+    <div class="skills-grid">
+      <span class="skill-tag">Python</span>
+      <span class="skill-tag">Selenium</span>
+      <span class="skill-tag">Pandas</span>
+      <span class="skill-tag">OpenPyXL</span>
+      <span class="skill-tag">Web Scraping</span>
+      <span class="skill-tag">Data Cleaning</span>
+      <span class="skill-tag">Excel Automation</span>
+      <span class="skill-tag">Lead Generation</span>
+    </div>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<div class="section" id="projects">
+  <div class="container">
+    <div class="section-tag">Work</div>
+    <div class="section-title">Projects</div>
+
+    <!-- PROJECT 1 -->
+    <div class="project-card">
+      <div class="project-num">Project 01</div>
+      <div class="project-title">🗺️ Google Maps Lead Scraper</div>
+      <div class="problem-solution">
+        <div class="ps-box problem">
+          <div class="ps-label">❌ Problem</div>
+          <p>Agencies copy business contacts manually from Google Maps — takes 2-3 days for 100 leads.</p>
+        </div>
+        <div class="ps-box solution">
+          <div class="ps-label">✅ Solution</div>
+          <p>Automated scraper collects name, phone, address, rating and website for any city in minutes.</p>
+        </div>
+      </div>
+      <div class="result-box">
+        <div class="result-label">📊 Result</div>
+        <div class="result-items">
+          <span class="result-item">100 real leads scraped</span>
+          <span class="result-item">Tiruppur agencies</span>
+          <span class="result-item">Within 24 hours</span>
+          <span class="result-item">Clean Excel output</span>
+        </div>
+      </div>
+      <div class="project-footer">
+        <div class="tools">
+          <span class="tool">Python</span>
+          <span class="tool">Selenium</span>
+          <span class="tool">OpenPyXL</span>
+        </div>
+        <a href="https://github.com/keshav-automation/Google-Maps-Business-Leads-Scraper" target="_blank" class="github-link">
+          ⭐ View on GitHub
+        </a>
+      </div>
+    </div>
+
+    <!-- PROJECT 2 -->
+    <div class="project-card">
+      <div class="project-num">Project 02</div>
+      <div class="project-title">🧹 Lead Data Cleaning Pipeline</div>
+      <div class="problem-solution">
+        <div class="ps-box problem">
+          <div class="ps-label">❌ Problem</div>
+          <p>Raw data is always messy — duplicates, wrong phone formats, empty cells. Clients cannot use it directly.</p>
+        </div>
+        <div class="ps-box solution">
+          <div class="ps-label">✅ Solution</div>
+          <p>7-step automated pipeline cleans data and scores each lead as Hot, Good or Cold automatically.</p>
+        </div>
+      </div>
+      <div class="result-box">
+        <div class="result-label">📊 Result</div>
+        <div class="result-items">
+          <span class="result-item">93 leads cleaned</span>
+          <span class="result-item">39 Hot leads found</span>
+          <span class="result-item">Avg rating 4.75</span>
+          <span class="result-item">3-sheet Excel report</span>
+        </div>
+      </div>
+      <div class="project-footer">
+        <div class="tools">
+          <span class="tool">Python</span>
+          <span class="tool">Pandas</span>
+          <span class="tool">OpenPyXL</span>
+        </div>
+        <a href="https://github.com/keshav-automation/lead-data-cleaning-pipeline" target="_blank" class="github-link">
+          ⭐ View on GitHub
+        </a>
+      </div>
+    </div>
+
+    <!-- PROJECT 3 -->
+    <div class="project-card">
+      <div class="project-num">Project 03</div>
+      <div class="project-title">🤖 Automated Weekly Lead Report</div>
+      <div class="problem-solution">
+        <div class="ps-box problem">
+          <div class="ps-label">❌ Problem</div>
+          <p>Agencies waste 2-3 days every week collecting, cleaning and preparing lead reports for clients.</p>
+        </div>
+        <div class="ps-box solution">
+          <div class="ps-label">✅ Solution</div>
+          <p>One command does everything — scrapes, cleans and delivers professional Excel report with 3 sheets within 24 hours.</p>
+        </div>
+      </div>
+      <div class="result-box">
+        <div class="result-label">📊 Result</div>
+        <div class="result-items">
+          <span class="result-item">Fully automated</span>
+          <span class="result-item">3-sheet Excel report</span>
+          <span class="result-item">Lead quality chart</span>
+          <span class="result-item">Zero manual work</span>
+        </div>
+      </div>
+      <div class="project-footer">
+        <div class="tools">
+          <span class="tool">Python</span>
+          <span class="tool">Selenium</span>
+          <span class="tool">Pandas</span>
+          <span class="tool">OpenPyXL</span>
+        </div>
+        <a href="https://github.com/keshav-automation/automated-lead-report" target="_blank" class="github-link">
+          ⭐ View on GitHub
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- SERVICES -->
+<div class="section" id="services">
+  <div class="container">
+    <div class="section-tag">Services</div>
+    <div class="section-title">What I Offer</div>
+    <div class="offer-grid">
+      <div class="offer-card">
+        <div class="offer-icon">🗺️</div>
+        <div class="offer-name">Business Lead Scraping</div>
+        <div class="offer-price">$10</div>
+        <div class="offer-time">100 leads • 24 hours • Any city</div>
+      </div>
+      <div class="offer-card">
+        <div class="offer-icon">🧹</div>
+        <div class="offer-name">Lead Data Cleaning</div>
+        <div class="offer-price">$8</div>
+        <div class="offer-time">Any dataset • 12 hours • Hot/Good/Cold score</div>
+      </div>
+      <div class="offer-card">
+        <div class="offer-icon">🤖</div>
+        <div class="offer-name">Full Lead Report</div>
+        <div class="offer-price">$20</div>
+        <div class="offer-time">Scrape + Clean + Report • 24 hours</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FREE SAMPLE -->
+<div class="container">
+  <div class="free-sample">
+    <h2>🎁 Try Before You Pay</h2>
+    <p>Not sure about quality? I'll send you 20 FREE leads for your city<br>and business category. No payment. No commitment.</p>
+    <a href="mailto:keshava.automations@gmail.com?subject=Free Sample Request&body=Hi Keshava, I need 20 free leads for: [city] - [business type]" class="hero-cta">
+      Request Free Sample
+    </a>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="contact-section" id="contact">
+  <div class="container">
+    <div class="section-tag" style="text-align:center">Contact</div>
+    <div class="section-title">Let's Work Together</div>
+    <div class="contact-links">
+      <a href="mailto:keshava.automations@gmail.com" class="contact-link contact-email">
+        📧 keshava.automations@gmail.com
+      </a>
+      <a href="https://www.linkedin.com/in/keshava-murthy-p" target="_blank" class="contact-link contact-linkedin">
+        💼 LinkedIn
+      </a>
+      <a href="https://github.com/keshav-automation" target="_blank" class="contact-link contact-github">
+        🐙 GitHub
+      </a>
+    </div>
+    <p class="reply-time">⚡ I reply within <span>2 hours</span></p>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Keshava Murthy P — Lead Generation Specialist, Tiruppur</p>
+</footer>
+
+</body>
+</html>
